@@ -3,6 +3,6 @@ pub(crate) use ::serde::{Deserialize, Serialize};
 pub(crate) use ::itertools::Itertools;
 pub(crate) use ::std::{
   ffi::{OsString, OsStr},
-  path::{Path, PathBuf}
+  path::{Path, PathBuf},
   iter::Iterator,
 };

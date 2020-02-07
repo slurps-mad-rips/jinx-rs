@@ -1,5 +1,11 @@
-use crate::prelude::*;
-use std::path::PathBuf;
+use crate::internal::*;
+
+
+// XXX: Most of this module is currently setup for *deserialization*
+//
+// What needs to happen is breaking this up. In other words, a de::, and se::
+// module. This way we can deserialize the JSON directly, then construct the
+// correct data structure 
 
 #[derive(Serialize, Deserialize, Debug)]
 struct Component {
@@ -24,10 +30,31 @@ struct Component {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-struct ComponentGroup;
+struct ComponentGroup {
+  #[serde(alias="displayName")]
+  display_name: String,
+  #[serde(alias="parentGroup")]
+  parent: String,
+
+  #[serde(alias="isExpandedByDefault")]
+  expanded: bool,
+  #[serde(alias="isBold")]
+  bold: bool,
+
+  description: String,
+  name: String,
+
+  components: Vec<String>,
+  subgroups: Vec<String>,
+}
 
 #[derive(Serialize, Deserialize, Debug)]
-struct InstallType;
+struct InstallType {
+  #[serde(alias="displayName")]
+  display_name: String,
+  name: String,
+  index: i64
+}
 
 #[derive(Serialize, Deserialize, Debug)]
 struct Project {

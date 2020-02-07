@@ -1,8 +1,4 @@
-use crate::prelude::*;
-use std::{
-  path::PathBuf,
-  ffi::OsString
-};
+use crate::internal::*;
 
 pub enum Define {
   Bool(bool), // ON, OFF, YES, NO, TRUE, FALSE, 1, 0, Y, N, *-NOTFOUND, IGNORE

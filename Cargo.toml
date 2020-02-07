@@ -11,14 +11,17 @@ categories = ["development-tools", "development-tools::build-utils"]
 
 [features]
 default = ["async"]
-async = ["tokio"]
+async = ["tokio", "tracing", "futures"]
 
 [dependencies]
 serde = { version = "1.0.104", features = ["derive"] }
+tracing = { version = "0.1.12", optional = true }
+futures = { version = "0.3.3", optional = true }
 serde_json = "1.0.46"
 anyhow = "1.0.26"
 log = "0.4.8"
 itertools = "0.8.2"
+time = "0.2.6"
 
 [dependencies.tokio]
 version = "0.2.11"
