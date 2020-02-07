@@ -70,6 +70,15 @@ struct Description {
   #[serde(alias="packageDescriptionFile")] file: Option<PathBuf>,
 }
 
+#[derive(Deserialize, Debug)]
+enum InstallDestination {
+  Default,
+  #[serde(rename="errorOnAbsoluteInstallDestination")]
+  Error,
+  #[serde(rename="warnOnAbsoluteInstallDestination")]
+  Warn,
+}
+
 #[derive(Serialize, Deserialize, Debug)]
 struct Package {
   #[serde(alias="packageVersion")] version: Option<String>,
@@ -80,10 +89,10 @@ struct Package {
   permissions: Option<Vec<String>>,
   #[serde(alias="packagingInstallPrefix")]
   prefix: PathBuf,
-  #[serde(alias="errorOnAbsoluteInstallDestination")]
-  error_on_absolute_install_destination: bool,
-  #[serde(alias="warnOnAbsoluteInstallDestination")]
-  warn_on_absolute_install_destination: bool,
+  // XXX: This is DEFINITELY not going to work correctly.
+  // A custom deserialize call is needed
+  #[serde(flatten)]
+  install_destination: InstallDestination
   #[serde(alias="setDestDir")]
   destination: bool,
   #[serde(alias="stripFiles")]

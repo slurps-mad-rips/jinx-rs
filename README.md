@@ -11,3 +11,5 @@ truly knows it stands for cursed.
 # Roadmap
 
 TODO: Fill this out as needed
+
+ - [ ] Download and install CMake and Ninja into `$JINX_HOME`

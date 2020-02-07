@@ -4,5 +4,6 @@ pub(crate) use ::itertools::Itertools;
 pub(crate) use ::std::{
   ffi::{OsString, OsStr},
   path::{Path, PathBuf},
+  collections::HashMap,
   iter::Iterator,
 };
