@@ -21,7 +21,7 @@ serde_json = "1.0.46"
 anyhow = "1.0.26"
 log = "0.4.8"
 itertools = "0.8.2"
-time = "0.2.6"
+condition = "0.1.0"
 
 [dependencies.tokio]
 version = "0.2.11"

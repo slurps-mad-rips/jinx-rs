@@ -1,11 +1,5 @@
 use crate::internal::*;
 
-#[derive(Deserialize, Debug)]
-pub struct Version {
-  major: u64,
-  minor: u64,
-}
-
 // TODO: This can be optimized and corrected for proper behavior
 #[derive(Deserialize, Debug)]
 pub struct Entry {

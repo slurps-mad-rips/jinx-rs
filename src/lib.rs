@@ -1,8 +1,3 @@
-mod internal;
-mod cmake;
-mod cpack;
-mod ctest;
-
-pub mod prelude {
-
-}
+pub(crate) mod internal;
+mod metadata;
+//mod core;

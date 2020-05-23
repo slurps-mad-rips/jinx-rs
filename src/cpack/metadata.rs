@@ -79,7 +79,7 @@ enum InstallDestination {
   Warn,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Deserialize, Debug)]
 struct Package {
   #[serde(alias="packageVersion")] version: Option<String>,
   #[serde(alias="packageName")] name: Option<String>,
@@ -91,8 +91,7 @@ struct Package {
   prefix: PathBuf,
   // XXX: This is DEFINITELY not going to work correctly.
   // A custom deserialize call is needed
-  #[serde(flatten)]
-  install_destination: InstallDestination
+  install_destination: InstallDestination,
   #[serde(alias="setDestDir")]
   destination: bool,
   #[serde(alias="stripFiles")]
